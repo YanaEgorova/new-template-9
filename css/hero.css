@@ -1,0 +1,10 @@
+.hero__wrapper {
+    /* background-image: url('../img/bg.jpeg');
+    background-position: center; */
+    /* background-color: var(--second-brand-color); */
+    /* border-bottom: 3rem solid var(--first-brand-color); */
+}
+.hero {
+    padding: 20rem 0 5rem;
+    text-align: center;
+}

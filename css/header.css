@@ -15,8 +15,9 @@
     /* color: var(--sub-text-color); */
 }
 .cart__btn span {
-    font-size: inherit;
+    font-size: 3rem;
     color: inherit;
+    font-family: var(--title-font);
 }
 .cart__btn svg {
     width: 3rem;

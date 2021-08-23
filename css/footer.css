@@ -19,7 +19,6 @@
 }
 .footer__span {
   font-size: 1.3rem;
-  color: var(--sub-text-color);
 }
 .footer__link-span {
   position: relative;
@@ -53,7 +52,6 @@
   }
   .footer__span {
     display: block;
-    text-align: right;
   }
   .footer__left, .footer__right {
     margin-bottom: 0;

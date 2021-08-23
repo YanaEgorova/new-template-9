@@ -1,10 +1,19 @@
 .hero__wrapper {
-    /* background-image: url('../img/bg.jpeg');
-    background-position: center; */
-    /* background-color: var(--second-brand-color); */
-    /* border-bottom: 3rem solid var(--first-brand-color); */
+    background-image: url('../img/bg.jpeg');
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .hero {
-    padding: 20rem 0 5rem;
-    text-align: center;
+    padding: 20rem 0;
+}
+@media screen and (min-width: 768px) {
+    .hero {
+        padding: 30rem 0;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .hero {
+        padding: 40rem 0;
+    }
 }

@@ -136,7 +136,12 @@
         bottom: 1.5rem;
         right: 1.5rem;
       }
-/* --third-brand-color */
+      .products__list .item:not(:last-child) {
+        margin-bottom: 0;
+    }
+    .products__list .item {
+        margin-bottom: 5rem !important;
+    }
 }
 @media screen and (min-width: 1024px) {
     .products .item {

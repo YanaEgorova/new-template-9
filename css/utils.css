@@ -98,9 +98,7 @@ button:focus {
   top: 0;
   background: none;
   font-size: 4rem;
-  /* color: var(--sub-text-color); */
   font-family: var(--title-font);
-  text-transform: uppercase;
   transform-origin: 100% 50%;
   transform: translate3d(150%, 0, 0);
   transition: transform 0.3s cubic-bezier(0.5, 0.5, 0.3, 1);
@@ -111,9 +109,7 @@ button:focus {
 .logo span {
   display: inline-block;
   font-size: 4rem;
-  /* color: var(--sub-text-color); */
   font-family: var(--title-font);
-  text-transform: uppercase;
   transition: transform 0.3s cubic-bezier(0.5, 0.5, 0.3, 1);
 }
 .logo:hover span {

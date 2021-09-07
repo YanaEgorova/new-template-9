@@ -20,9 +20,17 @@
 .footer__span {
   font-size: 1.3rem;
 }
-.footer__link-span {
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.footer__right .footer__link {
+  margin-left: 0;
+}
+.footer__link {
   position: relative;
-  color: inherit;
+  margin-left: 1rem;
 }
 .footer__text {
   display: flex;
@@ -59,8 +67,8 @@
 
   /* FOOTER LINK ON HOVER */
 
-  .footer__link-span::before,
-  .footer__link-span::after {
+  .footer__link::before,
+  .footer__link::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -71,19 +79,19 @@
     pointer-events: none;
   }
 
-  .footer__link-span::before {
+  .footer__link::before {
     transform-origin: 100% 50%;
     transform: scale3d(0, 1, 1);
     transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
   }
 
-  .footer__link-span:hover::before {
+  .footer__link:hover::before {
     transform-origin: 0% 50%;
     transform: scale3d(1, 1, 1);
     transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
   }
 
-  .footer__link-span::after {
+  .footer__link::after {
     content: '';
     top: calc(100% + .4rem);
     transform-origin: 0% 50%;
@@ -91,7 +99,7 @@
     transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
   }
 
-  .footer__link-span:hover::after {
+  .footer__link:hover::after {
     transform-origin: 100% 50%;
     transform: scale3d(1, 1, 1);
     transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);

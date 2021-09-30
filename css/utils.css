@@ -58,10 +58,63 @@ button:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
-.main {
-  /* background-color: var(--first-brand-color); */
+/* ERROR START */
+.error__overlay {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;  
+  background-color: rgb(0, 0, 0, .8);
+  z-index: 99999999999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
 }
+body.error-active {
+  overflow: hidden;
+}
+body.error-active .error__overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+}
+.error {
+  background-color: #fff;
+  padding: 2rem;
+  max-width: 90%;
+  border-radius: 1rem;
+  position: relative;
+  text-align: center;
+}
+.error__btn {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  background-color: red;
+  color: #fff;
+  font-family: var(--title-font);
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.error__text {
+  display: block;
+  color: red;
+  font-family: var(--main-font);
+  margin-bottom: 2rem;
+}
+.error__title {
+  font-family: var(--title-font);
+}
+/* ERROR END */
 .bg {
   background-position: center;
   background-size: cover;

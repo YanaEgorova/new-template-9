@@ -1,5 +1,6 @@
-import {cartSpan} from './add-to-cart.js';
+import {cartSpan, removeError} from './add-to-cart.js';
 import {localStorage} from './local-storage.js';
+import { getLocalStorageItem } from './local-storage.js';
 import {setAmountToCartSpan} from './on-load.js';
 import {showSuccessMessage} from './add-to-cart.js';
 const incrementBtn = document.querySelector('.js_prod__btn-more');
@@ -29,18 +30,42 @@ function cartAdd(e) {
     const btn = e.currentTarget;
     const parent = btn.closest('.js_prod__block');
     const amount = parent.querySelector('.js_prod__amount-span');
-    cartSpan.textContent = Number(amount.textContent) + Number(cartSpan.textContent);
-    setAmountToCartSpan();
     const id = parent.getAttribute('id');
 
-    console.log('btn', btn)
+    let total = parseFloat(parent.querySelector('.js_prod__price').textContent.substr(1));
+    console.log(total);
+    let okay = true;
+
+    getLocalStorageItem().forEach(product => {
+       const productTotal = Number((product.quantity * product.price).toFixed(2));
+       total = total + productTotal;
+       console.log(total);
+    })
+
+    if (total > 500) {
+        document.body.classList.add('error-active');
+        window.addEventListener('keydown', (e) => {
+           if(e.code !== 'Escape') {
+               return;
+           }
+           removeError();
+        })
+        okay = false;
+    }
+
     // ADD TO LOCAL STORAGE
-    localStorage(id, amount.textContent);
-    console.log('btn', btn)
-    const successMessageSpan = document.querySelector('.js_success-product-name');
-    const successMessage = document.querySelector('.js_success-message');
-    const name = document.querySelector('.js_prod__title').textContent;
-    showSuccessMessage(successMessage, successMessageSpan, name);
+    if (okay){
+        cartSpan.textContent = Number(amount.textContent) + Number(cartSpan.textContent);
+        setAmountToCartSpan();
+
+        localStorage(id, amount.textContent);
+        console.log('btn', btn)
+        const successMessageSpan = document.querySelector('.js_success-product-name');
+        const successMessage = document.querySelector('.js_success-message');
+        const name = document.querySelector('.js_prod__title').textContent;
+        showSuccessMessage(successMessage, successMessageSpan, name);
+    }
+    
 }
 
 function increment(e) {
